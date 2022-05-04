@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AtlasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="num_client" />
+          </Key>
+          <Property Name="num_client" Type="int" Nullable="false" />
+          <Property Name="code_secret" Type="int" />
+          <Property Name="nom_client" Type="varchar" MaxLength="50" />
+          <Property Name="solde" Type="float" />
+          <Property Name="Date_create" Type="datetime" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6013: Aucune clé primaire n'est définie pour la table/vue 'Atlas.dbo.Commande' ; en outre, aucune clé primaire valide n'a pu être déduite. Cette table/vue a été exclue. Pour utiliser l'entité, vous devez passer en revue votre schéma, ajouter les clés appropriées et supprimer le commentaire associé.
+        <EntityType Name="Commande">
+          <Property Name="jeux" Type="varchar" MaxLength="50" />
+          <Property Name="prix" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+        <EntityType Name="Enfant">
+          <Key>
+            <PropertyRef Name="code_bracelet" />
+          </Key>
+          <Property Name="code_bracelet" Type="bigint" Nullable="false" />
+          <Property Name="nom_enfant" Type="varchar" MaxLength="50" />
+          <Property Name="date_nais" Type="varchar" MaxLength="50" />
+          <Property Name="sms" Type="bit" />
+          <Property Name="taille" Type="varchar" MaxLength="50" />
+          <Property Name="montant_jeux" Type="money" />
+          <Property Name="num_client" Type="int" />
+          <Property Name="date_creation" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'Atlas.dbo.Enfant_detaille' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="Enfant_detaille">
+          <Key>
+            <PropertyRef Name="code_bracelet" />
+            <PropertyRef Name="code_jeux" />
+          </Key>
+          <Property Name="code_bracelet" Type="bigint" Nullable="false" />
+          <Property Name="code_jeux" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Hotesse">
+          <Key>
+            <PropertyRef Name="login" />
+          </Key>
+          <Property Name="login" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="mdp" Type="varchar" MaxLength="50" />
+          <Property Name="nom_hotesse" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="jeux">
+          <Key>
+            <PropertyRef Name="code_jeux" />
+          </Key>
+          <Property Name="code_jeux" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nom_jeux" Type="varchar" MaxLength="50" />
+          <Property Name="prix" Type="varchar" MaxLength="50" />
+          <Property Name="nbre_jeux" Type="int" />
+          <Property Name="taille_enfant" Type="varchar" MaxLength="50" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pathImage" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <Association Name="FK_Enfant_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+          <End Role="Enfant" Type="Self.Enfant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="num_client" />
+            </Principal>
+            <Dependent Role="Enfant">
+              <PropertyRef Name="num_client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Enfant_detaille_Enfant">
+          <End Role="Enfant" Type="Self.Enfant" Multiplicity="1" />
+          <End Role="Enfant_detaille" Type="Self.Enfant_detaille" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Enfant">
+              <PropertyRef Name="code_bracelet" />
+            </Principal>
+            <Dependent Role="Enfant_detaille">
+              <PropertyRef Name="code_bracelet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Enfant_detaille_jeux">
+          <End Role="jeux" Type="Self.jeux" Multiplicity="1" />
+          <End Role="Enfant_detaille" Type="Self.Enfant_detaille" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jeux">
+              <PropertyRef Name="code_jeux" />
+            </Principal>
+            <Dependent Role="Enfant_detaille">
+              <PropertyRef Name="code_jeux" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_jeux_jeux">
+          <End Role="jeux" Type="Self.jeux" Multiplicity="1" />
+          <End Role="jeux1" Type="Self.jeux" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="jeux">
+              <PropertyRef Name="code_jeux" />
+            </Principal>
+            <Dependent Role="jeux1">
+              <PropertyRef Name="code_jeux" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AtlasModelStoreContainer">
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Enfant" EntityType="Self.Enfant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hotesse" EntityType="Self.Hotesse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="jeux" EntityType="Self.jeux" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Enfant_detaille" EntityType="Self.Enfant_detaille" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Enfant_detaille].[code_bracelet] AS [code_bracelet], 
+    [Enfant_detaille].[code_jeux] AS [code_jeux]
+    FROM [dbo].[Enfant_detaille] AS [Enfant_detaille]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Enfant_Client" Association="Self.FK_Enfant_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Enfant" EntitySet="Enfant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Enfant_detaille_Enfant" Association="Self.FK_Enfant_detaille_Enfant">
+            <End Role="Enfant" EntitySet="Enfant" />
+            <End Role="Enfant_detaille" EntitySet="Enfant_detaille" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Enfant_detaille_jeux" Association="Self.FK_Enfant_detaille_jeux">
+            <End Role="jeux" EntitySet="jeux" />
+            <End Role="Enfant_detaille" EntitySet="Enfant_detaille" />
+          </AssociationSet>
+          <AssociationSet Name="FK_jeux_jeux" Association="Self.FK_jeux_jeux">
+            <End Role="jeux" EntitySet="jeux" />
+            <End Role="jeux1" EntitySet="jeux" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AtlasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="num_client" />
+          </Key>
+          <Property Name="num_client" Type="Int32" Nullable="false" />
+          <Property Name="code_secret" Type="Int32" />
+          <Property Name="nom_client" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="solde" Type="Double" />
+          <Property Name="Date_create" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Enfant" Relationship="Self.FK_Enfant_Client" FromRole="Client" ToRole="Enfant" />
+        </EntityType>
+        <EntityType Name="Enfant">
+          <Key>
+            <PropertyRef Name="code_bracelet" />
+          </Key>
+          <Property Name="code_bracelet" Type="Int64" Nullable="false" />
+          <Property Name="nom_enfant" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date_nais" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sms" Type="Boolean" />
+          <Property Name="taille" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="montant_jeux" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="num_client" Type="Int32" />
+          <Property Name="date_creation" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_Enfant_Client" FromRole="Enfant" ToRole="Client" />
+          <NavigationProperty Name="jeux" Relationship="Self.Enfant_detaille" FromRole="Enfant" ToRole="jeux" />
+        </EntityType>
+        <EntityType Name="Hotesse">
+          <Key>
+            <PropertyRef Name="login" />
+          </Key>
+          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mdp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nom_hotesse" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="jeux">
+          <Key>
+            <PropertyRef Name="code_jeux" />
+          </Key>
+          <Property Name="code_jeux" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nom_jeux" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="prix" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nbre_jeux" Type="Int32" />
+          <Property Name="taille_enfant" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pathImage" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="jeux1" Relationship="Self.FK_jeux_jeux" FromRole="jeux" ToRole="jeux1" />
+          <NavigationProperty Name="jeux2" Relationship="Self.FK_jeux_jeux" FromRole="jeux1" ToRole="jeux" />
+          <NavigationProperty Name="Enfant" Relationship="Self.Enfant_detaille" FromRole="jeux" ToRole="Enfant" />
+        </EntityType>
+        <Association Name="FK_Enfant_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+          <End Role="Enfant" Type="Self.Enfant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="num_client" />
+            </Principal>
+            <Dependent Role="Enfant">
+              <PropertyRef Name="num_client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_jeux_jeux">
+          <End Role="jeux" Type="Self.jeux" Multiplicity="1" />
+          <End Role="jeux1" Type="Self.jeux" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="jeux">
+              <PropertyRef Name="code_jeux" />
+            </Principal>
+            <Dependent Role="jeux1">
+              <PropertyRef Name="code_jeux" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Enfant_detaille">
+          <End Role="Enfant" Type="Self.Enfant" Multiplicity="*" />
+          <End Role="jeux" Type="Self.jeux" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="AtlasEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Client" EntityType="Self.Client" />
+          <EntitySet Name="Enfant" EntityType="Self.Enfant" />
+          <EntitySet Name="Hotesse" EntityType="Self.Hotesse" />
+          <EntitySet Name="jeux" EntityType="Self.jeux" />
+          <AssociationSet Name="FK_Enfant_Client" Association="Self.FK_Enfant_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Enfant" EntitySet="Enfant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_jeux_jeux" Association="Self.FK_jeux_jeux">
+            <End Role="jeux" EntitySet="jeux" />
+            <End Role="jeux1" EntitySet="jeux" />
+          </AssociationSet>
+          <AssociationSet Name="Enfant_detaille" Association="Self.Enfant_detaille">
+            <End Role="Enfant" EntitySet="Enfant" />
+            <End Role="jeux" EntitySet="jeux" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AtlasModelStoreContainer" CdmEntityContainer="AtlasEntities">
+          <EntitySetMapping Name="Client">
+            <EntityTypeMapping TypeName="AtlasModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="num_client" ColumnName="num_client" />
+                <ScalarProperty Name="code_secret" ColumnName="code_secret" />
+                <ScalarProperty Name="nom_client" ColumnName="nom_client" />
+                <ScalarProperty Name="solde" ColumnName="solde" />
+                <ScalarProperty Name="Date_create" ColumnName="Date_create" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Enfant">
+            <EntityTypeMapping TypeName="AtlasModel.Enfant">
+              <MappingFragment StoreEntitySet="Enfant">
+                <ScalarProperty Name="code_bracelet" ColumnName="code_bracelet" />
+                <ScalarProperty Name="nom_enfant" ColumnName="nom_enfant" />
+                <ScalarProperty Name="date_nais" ColumnName="date_nais" />
+                <ScalarProperty Name="sms" ColumnName="sms" />
+                <ScalarProperty Name="taille" ColumnName="taille" />
+                <ScalarProperty Name="montant_jeux" ColumnName="montant_jeux" />
+                <ScalarProperty Name="num_client" ColumnName="num_client" />
+                <ScalarProperty Name="date_creation" ColumnName="date_creation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hotesse">
+            <EntityTypeMapping TypeName="AtlasModel.Hotesse">
+              <MappingFragment StoreEntitySet="Hotesse">
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="mdp" ColumnName="mdp" />
+                <ScalarProperty Name="nom_hotesse" ColumnName="nom_hotesse" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="jeux">
+            <EntityTypeMapping TypeName="AtlasModel.jeux">
+              <MappingFragment StoreEntitySet="jeux">
+                <ScalarProperty Name="code_jeux" ColumnName="code_jeux" />
+                <ScalarProperty Name="nom_jeux" ColumnName="nom_jeux" />
+                <ScalarProperty Name="prix" ColumnName="prix" />
+                <ScalarProperty Name="nbre_jeux" ColumnName="nbre_jeux" />
+                <ScalarProperty Name="taille_enfant" ColumnName="taille_enfant" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="pathImage" ColumnName="pathImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Enfant_detaille" TypeName="AtlasModel.Enfant_detaille" StoreEntitySet="Enfant_detaille">
+            <EndProperty Name="Enfant">
+              <ScalarProperty Name="code_bracelet" ColumnName="code_bracelet" />
+            </EndProperty>
+            <EndProperty Name="jeux">
+              <ScalarProperty Name="code_jeux" ColumnName="code_jeux" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
