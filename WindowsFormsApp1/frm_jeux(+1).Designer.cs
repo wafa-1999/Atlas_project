@@ -30,7 +30,6 @@ namespace WindowsFormsApp1
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_jeux));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_solde = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,7 +40,7 @@ namespace WindowsFormsApp1
             this.lbl_enfant = new System.Windows.Forms.Label();
             this.tc_jeux = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.pack1 = new System.Windows.Forms.DataGridView();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -50,75 +49,34 @@ namespace WindowsFormsApp1
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.Orange = new System.Windows.Forms.PictureBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.table = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cart = new System.Windows.Forms.DataGridView();
-            this.jeux = new System.Windows.Forms.DataGridViewImageColumn();
-            this.prix = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.lbl_enf = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.image = new System.Windows.Forms.DataGridViewImageColumn();
-            this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label5 = new System.Windows.Forms.Label();
             this.button_WOC26 = new ePOSOne.btnProduct.Button_WOC();
             this.payer = new ePOSOne.btnProduct.Button_WOC();
-            this.pic = new System.Windows.Forms.DataGridViewImageColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prix_jeux = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.path = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tc_jeux.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pack1)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Orange)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            this.flowLayoutPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -222,43 +180,28 @@ namespace WindowsFormsApp1
             this.tc_jeux.Location = new System.Drawing.Point(41, 166);
             this.tc_jeux.Name = "tc_jeux";
             this.tc_jeux.SelectedIndex = 0;
-            this.tc_jeux.Size = new System.Drawing.Size(500, 501);
+            this.tc_jeux.Size = new System.Drawing.Size(500, 511);
             this.tc_jeux.TabIndex = 115;
             // 
             // tabPage1
             // 
             this.tabPage1.AutoScroll = true;
-            this.tabPage1.Controls.Add(this.pack1);
+            this.tabPage1.Controls.Add(this.flowLayoutPanel1);
             this.tabPage1.Location = new System.Drawing.Point(4, 30);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(492, 467);
+            this.tabPage1.Size = new System.Drawing.Size(492, 477);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "jeux";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // pack1
+            // flowLayoutPanel1
             // 
-            this.pack1.AllowUserToAddRows = false;
-            this.pack1.AllowUserToDeleteRows = false;
-            this.pack1.AllowUserToResizeColumns = false;
-            this.pack1.AllowUserToResizeRows = false;
-            this.pack1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pack1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.pack1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.pack1.ColumnHeadersVisible = false;
-            this.pack1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.pic,
-            this.name,
-            this.prix_jeux,
-            this.path});
-            this.pack1.Location = new System.Drawing.Point(0, 7);
-            this.pack1.Name = "pack1";
-            this.pack1.ReadOnly = true;
-            this.pack1.RowHeadersVisible = false;
-            this.pack1.RowTemplate.Height = 140;
-            this.pack1.Size = new System.Drawing.Size(486, 457);
-            this.pack1.TabIndex = 0;
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(486, 471);
+            this.flowLayoutPanel1.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -266,7 +209,7 @@ namespace WindowsFormsApp1
             this.tabPage2.Location = new System.Drawing.Point(4, 30);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(492, 467);
+            this.tabPage2.Size = new System.Drawing.Size(492, 477);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Pack 2 jeux";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -274,7 +217,7 @@ namespace WindowsFormsApp1
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(90, 23);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(90, 28);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(10);
             this.flowLayoutPanel2.Size = new System.Drawing.Size(350, 421);
@@ -286,7 +229,7 @@ namespace WindowsFormsApp1
             this.tabPage3.Location = new System.Drawing.Point(4, 30);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(492, 467);
+            this.tabPage3.Size = new System.Drawing.Size(492, 477);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Pack 3 jeux";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -294,7 +237,7 @@ namespace WindowsFormsApp1
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(96, 31);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(96, 36);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Padding = new System.Windows.Forms.Padding(10);
             this.flowLayoutPanel3.Size = new System.Drawing.Size(326, 413);
@@ -306,7 +249,7 @@ namespace WindowsFormsApp1
             this.tabPage4.Location = new System.Drawing.Point(4, 30);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(492, 467);
+            this.tabPage4.Size = new System.Drawing.Size(492, 477);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Pack 4 jeux";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -314,7 +257,7 @@ namespace WindowsFormsApp1
             // flowLayoutPanel4
             // 
             this.flowLayoutPanel4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(95, 43);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(95, 48);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Padding = new System.Windows.Forms.Padding(10);
             this.flowLayoutPanel4.Size = new System.Drawing.Size(341, 401);
@@ -325,7 +268,7 @@ namespace WindowsFormsApp1
             this.tabPage5.Controls.Add(this.flowLayoutPanel5);
             this.tabPage5.Location = new System.Drawing.Point(4, 30);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(492, 467);
+            this.tabPage5.Size = new System.Drawing.Size(492, 477);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Pack 5 jeux";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -333,159 +276,11 @@ namespace WindowsFormsApp1
             // flowLayoutPanel5
             // 
             this.flowLayoutPanel5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(102, 43);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(102, 48);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
             this.flowLayoutPanel5.Padding = new System.Windows.Forms.Padding(10);
             this.flowLayoutPanel5.Size = new System.Drawing.Size(334, 401);
             this.flowLayoutPanel5.TabIndex = 3;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(3, 577);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(37, 13);
-            this.label14.TabIndex = 14;
-            this.label14.Text = "13 DT";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(3, 564);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(40, 13);
-            this.label13.TabIndex = 13;
-            this.label13.Text = "9,1 DT";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(3, 551);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(40, 13);
-            this.label12.TabIndex = 12;
-            this.label12.Text = "9,1 DT";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 538);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(40, 13);
-            this.label11.TabIndex = 11;
-            this.label11.Text = "6,5 DT";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 525);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(40, 13);
-            this.label10.TabIndex = 10;
-            this.label10.Text = "6,5 DT";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 512);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(39, 13);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "Rouge";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 499);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(36, 13);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "Jaune";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 486);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(26, 13);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "Vert";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 473);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(28, 13);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Bleu";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 460);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 13);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Orange";
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(3, 371);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(100, 86);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 4;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(3, 279);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(100, 86);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 3;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(100, 86);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(3, 187);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 86);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // Orange
-            // 
-            this.Orange.Image = ((System.Drawing.Image)(resources.GetObject("Orange.Image")));
-            this.Orange.Location = new System.Drawing.Point(3, 95);
-            this.Orange.Name = "Orange";
-            this.Orange.Size = new System.Drawing.Size(100, 86);
-            this.Orange.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Orange.TabIndex = 0;
-            this.Orange.TabStop = false;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(544, 642);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(49, 25);
-            this.flowLayoutPanel1.TabIndex = 0;
             // 
             // tabControl1
             // 
@@ -499,7 +294,6 @@ namespace WindowsFormsApp1
             // 
             // tabPage6
             // 
-            this.tabPage6.Controls.Add(this.table);
             this.tabPage6.Controls.Add(this.cart);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
@@ -509,82 +303,17 @@ namespace WindowsFormsApp1
             this.tabPage6.Text = "tabPage6";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // table
-            // 
-            this.table.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.table.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.table.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.table.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.table.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
-            this.table.Location = new System.Drawing.Point(5, 4);
-            this.table.Name = "table";
-            this.table.RowHeadersVisible = false;
-            this.table.Size = new System.Drawing.Size(457, 340);
-            this.table.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Jeux";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 250;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Prix";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 130;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "delete";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
             // cart
             // 
             this.cart.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.cart.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.cart.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.cart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.cart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.jeux,
-            this.prix,
-            this.delete});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.cart.DefaultCellStyle = dataGridViewCellStyle3;
-            this.cart.Location = new System.Drawing.Point(7, 7);
+            this.cart.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cart.Location = new System.Drawing.Point(3, 6);
             this.cart.Name = "cart";
-            this.cart.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.cart.RowHeadersVisible = false;
-            this.cart.Size = new System.Drawing.Size(453, 336);
+            this.cart.Size = new System.Drawing.Size(460, 340);
             this.cart.TabIndex = 0;
-            // 
-            // jeux
-            // 
-            this.jeux.HeaderText = "Jeux";
-            this.jeux.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.jeux.Name = "jeux";
-            this.jeux.Width = 150;
-            // 
-            // prix
-            // 
-            this.prix.HeaderText = "Prix";
-            this.prix.Name = "prix";
-            this.prix.Width = 200;
-            // 
-            // delete
-            // 
-            this.delete.HeaderText = "";
-            this.delete.Name = "delete";
             // 
             // lbl_enf
             // 
@@ -598,45 +327,6 @@ namespace WindowsFormsApp1
             this.lbl_enf.Size = new System.Drawing.Size(51, 16);
             this.lbl_enf.TabIndex = 117;
             this.lbl_enf.Text = "label5";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.ColumnHeadersVisible = false;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.image,
-            this.nom,
-            this.price});
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.Location = new System.Drawing.Point(623, 279);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(35, 46);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // image
-            // 
-            this.image.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.image.DataPropertyName = "image_jeux";
-            this.image.HeaderText = "image";
-            this.image.Name = "image";
-            // 
-            // nom
-            // 
-            this.nom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nom.DataPropertyName = "nom_jeux";
-            this.nom.HeaderText = "nom";
-            this.nom.Name = "nom";
-            this.nom.ReadOnly = true;
-            // 
-            // price
-            // 
-            this.price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.price.DataPropertyName = "prix";
-            this.price.HeaderText = "price";
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
             // 
             // pictureBox6
             // 
@@ -697,15 +387,6 @@ namespace WindowsFormsApp1
             this.label15.Text = "Tarif(     )\r\nTu seras notifié par SMS quand               Voudra quitter la zone" +
     " de\r\n jeux\r\n";
             // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.textBox1.Location = new System.Drawing.Point(1097, 153);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 124;
-            // 
             // label16
             // 
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -745,27 +426,17 @@ namespace WindowsFormsApp1
             this.label18.TabIndex = 130;
             this.label18.Text = "label5";
             // 
-            // flowLayoutPanel6
+            // label5
             // 
-            this.flowLayoutPanel6.Controls.Add(this.pictureBox3);
-            this.flowLayoutPanel6.Controls.Add(this.Orange);
-            this.flowLayoutPanel6.Controls.Add(this.pictureBox2);
-            this.flowLayoutPanel6.Controls.Add(this.pictureBox4);
-            this.flowLayoutPanel6.Controls.Add(this.pictureBox5);
-            this.flowLayoutPanel6.Controls.Add(this.label5);
-            this.flowLayoutPanel6.Controls.Add(this.label6);
-            this.flowLayoutPanel6.Controls.Add(this.label7);
-            this.flowLayoutPanel6.Controls.Add(this.label8);
-            this.flowLayoutPanel6.Controls.Add(this.label9);
-            this.flowLayoutPanel6.Controls.Add(this.label10);
-            this.flowLayoutPanel6.Controls.Add(this.label11);
-            this.flowLayoutPanel6.Controls.Add(this.label12);
-            this.flowLayoutPanel6.Controls.Add(this.label13);
-            this.flowLayoutPanel6.Controls.Add(this.label14);
-            this.flowLayoutPanel6.Location = new System.Drawing.Point(623, 331);
-            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(64, 43);
-            this.flowLayoutPanel6.TabIndex = 131;
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(1095, 157);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 16);
+            this.label5.TabIndex = 131;
+            this.label5.Text = "label5";
             // 
             // button_WOC26
             // 
@@ -809,54 +480,17 @@ namespace WindowsFormsApp1
             this.payer.TextColor = System.Drawing.Color.Black;
             this.payer.UseVisualStyleBackColor = false;
             // 
-            // pic
-            // 
-            this.pic.DataPropertyName = "pic";
-            this.pic.HeaderText = "";
-            this.pic.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.pic.Name = "pic";
-            this.pic.ReadOnly = true;
-            this.pic.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.pic.Width = 120;
-            // 
-            // name
-            // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.name.DataPropertyName = "nom";
-            this.name.HeaderText = "";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // prix_jeux
-            // 
-            this.prix_jeux.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.prix_jeux.DataPropertyName = "prix";
-            this.prix_jeux.HeaderText = "";
-            this.prix_jeux.Name = "prix_jeux";
-            this.prix_jeux.ReadOnly = true;
-            // 
-            // path
-            // 
-            this.path.DataPropertyName = "pathImage";
-            this.path.HeaderText = "";
-            this.path.Name = "path";
-            this.path.ReadOnly = true;
-            this.path.Visible = false;
-            // 
             // frm_jeux
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1318, 788);
-            this.Controls.Add(this.flowLayoutPanel6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lbl_enf);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.tc_jeux);
@@ -882,27 +516,17 @@ namespace WindowsFormsApp1
             this.Load += new System.EventHandler(this.frm_jeux_Load);
             this.tc_jeux.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pack1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Orange)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.table)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            this.flowLayoutPanel6.ResumeLayout(false);
-            this.flowLayoutPanel6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -925,7 +549,6 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.TextBox text_enfant;
         private System.Windows.Forms.Label lbl_enfant;
         private System.Windows.Forms.TabControl tc_jeux;
-        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
@@ -937,44 +560,13 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
         public System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Label lbl_enf;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.DataGridView cart;
-        private System.Windows.Forms.DataGridViewImageColumn jeux;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prix;
-        private System.Windows.Forms.DataGridViewButtonColumn delete;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewImageColumn image;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox Orange;
-        private System.Windows.Forms.DataGridView table;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridView pack1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
-        private System.Windows.Forms.DataGridViewImageColumn pic;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prix_jeux;
-        private System.Windows.Forms.DataGridViewTextBoxColumn path;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.DataGridView cart;
+        private System.Windows.Forms.Label label5;
     }
 }

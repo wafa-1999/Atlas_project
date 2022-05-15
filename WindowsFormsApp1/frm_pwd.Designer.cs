@@ -450,7 +450,7 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_pwd";
-            this.Text = "....";
+            this.Text = " ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.verif_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

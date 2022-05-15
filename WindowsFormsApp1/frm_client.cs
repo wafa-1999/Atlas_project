@@ -89,18 +89,8 @@ namespace WindowsFormsApp1
                 this.Hide();
                 m.Show();
             }
-            /*
-            SqlConnection con = new SqlConnection("Data Source=localhost;Initial Catalog=Atlas;Integrated Security=True");
-            con.Open();
-            SqlCommand cmd = new SqlCommand("insert into Client values(@num_tel,@code_conf,@nom,@solde)", con);
-            cmd.Parameters.AddWithValue("@num_tel", int.Parse(f1.txt_num.Text));
-            cmd.Parameters.AddWithValue("@code_conf", int.Parse(fv.text_code.Text));
-            cmd.Parameters.AddWithValue("@nom", txt_nom.Text);
-            cmd.Parameters.AddWithValue("@solde", null);
-            cmd.ExecuteNonQuery();
-
-            con.Close();
-            MessageBox.Show("Success");*/
+          
+         
         }
 
         private void frm_client_Load(object sender, EventArgs e)

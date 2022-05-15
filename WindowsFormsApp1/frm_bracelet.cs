@@ -31,5 +31,15 @@ namespace WindowsFormsApp1
             fe.Show();
 
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frm_bracelet_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

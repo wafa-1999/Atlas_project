@@ -137,7 +137,6 @@ namespace WindowsFormsApp1
             this.label1.Size = new System.Drawing.Size(118, 29);
             this.label1.TabIndex = 55;
             this.label1.Text = "Prénom: ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txt_enfant
             // 
@@ -162,7 +161,6 @@ namespace WindowsFormsApp1
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 52;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label2
             // 
@@ -314,6 +312,7 @@ namespace WindowsFormsApp1
             this.date_nais.Size = new System.Drawing.Size(100, 20);
             this.date_nais.TabIndex = 108;
             this.date_nais.Visible = false;
+            this.date_nais.TextChanged += new System.EventHandler(this.date_nais_TextChanged);
             // 
             // txt_num
             // 
@@ -332,7 +331,6 @@ namespace WindowsFormsApp1
             this.taille.Size = new System.Drawing.Size(100, 20);
             this.taille.TabIndex = 110;
             this.taille.Visible = false;
-            this.taille.TextChanged += new System.EventHandler(this.taille_TextChanged);
             // 
             // txt_barcode
             // 

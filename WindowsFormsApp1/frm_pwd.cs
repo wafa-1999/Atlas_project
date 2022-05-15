@@ -74,14 +74,53 @@ namespace WindowsFormsApp1
         }
         int a, b, c;
         
-        private void button_WOC10_Click(object sender, EventArgs e)
+        public void button_WOC10_Click(object sender, EventArgs e)
+        {
+            /* frm_client nc = new frm_client();
+
+             menu m = new menu();
+             Alert al = new Alert();
+             ((TextBox)nc.Controls["txt_code"]).Text = txt_code.Text;
+
+             int.TryParse(text_code.Text, out a);
+             int.TryParse(txt_code.Text, out b);
+             int.TryParse(code_exist.Text, out c);
+             if (String.IsNullOrEmpty(text_code.Text))
+             {
+                 al.Show();
+             }
+             else if (a == b)
+             {
+                 ((TextBox)nc.Controls["txt_num"]).Text = txt_num.Text;
+                 code_exist.Visible = false;
+                 this.Hide();
+                 nc.Show();
+             }
+
+             else if (a == c)
+             {
+                 ((TextBox)m.Controls["txt_num"]).Text = txt_num.Text;
+                 txt_code.Visible = false;
+                 this.Hide();
+                 m.Show();
+             }
+             else
+                 MessageBox.Show("code incorrrrrecte");
+            */
+
+            CheckPass();
+
+
+
+        }
+        public void CheckPass()
         {
             frm_client nc = new frm_client();
-            
+
             menu m = new menu();
             Alert al = new Alert();
             ((TextBox)nc.Controls["txt_code"]).Text = txt_code.Text;
-            
+
             int.TryParse(text_code.Text, out a);
             int.TryParse(txt_code.Text, out b);
             int.TryParse(code_exist.Text, out c);
@@ -105,15 +144,8 @@ namespace WindowsFormsApp1
                 m.Show();
             }
             else
-                MessageBox.Show("code incorrrrrecte");
-
-
-
-
-
-
+                al.Show();
         }
-
         private void txt_code_TextChanged(object sender, EventArgs e)
         {
 
